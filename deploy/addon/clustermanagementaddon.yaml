@@ -1,0 +1,8 @@
+apiVersion: addon.open-cluster-management.io/v1alpha1
+kind: ClusterManagementAddOn
+metadata:
+  name: argoworkflow-status-addon
+spec:
+  addOnMeta:
+    displayName: ArgoWorkflowStatus Addon
+    description: "argoworkflow-status-addon is an addon that copys an Argo Workflow status from spoke to hub"

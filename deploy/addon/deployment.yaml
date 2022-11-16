@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: argoworkflow-status-addon-manager
+  namespace: open-cluster-management
+  labels:
+    app: argoworkflow-status-addon-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argoworkflow-status-addon-manager
+  template:
+    metadata:
+      labels:
+        app: argoworkflow-status-addon-manager
+    spec:
+      serviceAccountName: argoworkflow-status-addon-sa
+      containers:
+        - name: argoworkflow-status-addon-manager
+          image: docker.io/sarabala1979/argo-ocm-wf-status-addon:v1
+          imagePullPolicy: Always
+          args:
+            - "manager"
